@@ -1,4 +1,4 @@
-<% if (@car_categories.length > 0) %>
+<% if (@car_categories.any?) %>
     <% @car_categories.each do |category| %>
         <%= link_to category.name, car_category_path(id: category.id) %>
     <% end %>

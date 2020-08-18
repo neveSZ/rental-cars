@@ -1,4 +1,4 @@
-<% if (@subsidiaries.length > 0) %>
+<% if (@subsidiaries.any?) %>
     <% @subsidiaries.each do |subsidiary| %>
         <%= link_to subsidiary.name, subsidiary_path(id: subsidiary.id) %>
     <% end %>
