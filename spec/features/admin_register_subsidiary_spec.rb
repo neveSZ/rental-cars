@@ -15,13 +15,13 @@ feature 'Admin register subsidiary' do
     click_on 'Registrar uma nova filial'
 
     fill_in 'Nome', with: 'Loja A'
-    fill_in 'CNPJ', with: '123'
+    fill_in 'CNPJ', with: '62.153.546/0001-30'
     fill_in 'Endereço', with: 'Rua 10'
     click_on 'Enviar'
 
     expect(current_path).to eq subsidiary_path(Subsidiary.last)
     expect(page).to have_content('Loja A')
-    expect(page).to have_content('123')
+    expect(page).to have_content('62.153.546/0001-30')
     expect(page).to have_content('Rua 10')
     expect(page).to have_link('Voltar')
   end
