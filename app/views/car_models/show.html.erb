@@ -1,0 +1,10 @@
+<%= @car_model.name %>
+<%= @car_model.year %>
+<%= @car_model.manufacturer %>
+<%= "%.2f" % @car_model.motorization %>
+<%= @car_model.fuel_type %>
+<%= @car_model.car_category.name %>
+<%= number_to_currency @car_model.car_category.daily_rate %>
+<%= number_to_currency @car_model.car_category.car_insurance %>
+<%= number_to_currency @car_model.car_category.third_party_insurance %>
+<%= link_to 'Voltar', car_models_path %>
