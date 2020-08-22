@@ -2,6 +2,7 @@ require 'rails_helper'
 
 feature 'Admin edit subsidiary' do
   scenario 'successfully' do
+    user_login
     Subsidiary.create!(name: 'Loja A', cnpj: '65.118.391/0001-99', address: 'Rua A')
 
     visit root_path
@@ -22,6 +23,7 @@ feature 'Admin edit subsidiary' do
   end
 
   scenario 'attributes cant be blank' do
+    user_login
     Subsidiary.create!(name: 'Loja A', cnpj: '65.118.391/0001-99', address: 'Rua A')
 
     visit root_path
@@ -37,6 +39,7 @@ feature 'Admin edit subsidiary' do
   end
 
   scenario 'cnpj must be unique' do
+    user_login
     Subsidiary.create!(name: 'Loja A', cnpj: '65.118.391/0001-99', address: 'Rua A')
     Subsidiary.create!(name: 'Loja B', cnpj: '64.090.070/0001-60', address: 'Rua B')
 
