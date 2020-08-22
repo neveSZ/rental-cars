@@ -7,9 +7,7 @@ describe Subsidiary, type: :model do
 
       subsidiary.valid?
 
-      expect(subsidiary.errors[:name]).to include('não pode ficar em branco')
       expect(subsidiary.errors[:cnpj]).to include('não pode ficar em branco')
-      expect(subsidiary.errors[:address]).to include('não pode ficar em branco')
     end
 
     it 'cnpj must be valid' do
