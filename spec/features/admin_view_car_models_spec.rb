@@ -10,7 +10,8 @@ feature 'Admin view car model' do
   end
 
   scenario 'and view list' do
-    user_login
+    user = User.create!(name: 'João', email: 'joao@mail.com', password: '12345678')
+    login_as(user, scope: :user)
     car_category = CarCategory.create!(name: 'Basic', daily_rate: 200, car_insurance: 50, third_party_insurance: 20)
     CarModel.create!(name: 'Celta', year: 2006, manufacturer: 'Chevrolet', motorization: 1.0, car_category: car_category, fuel_type: 'Flex')
     CarModel.create!(name: 'KA', year: 2008, manufacturer: 'Ford', motorization: 1.0, car_category: car_category, fuel_type: 'Flex')
@@ -28,7 +29,8 @@ feature 'Admin view car model' do
   end
 
   scenario 'and view details' do
-    user_login
+    user = User.create!(name: 'João', email: 'joao@mail.com', password: '12345678')
+    login_as(user, scope: :user)
     car_category = CarCategory.create!(name: 'Basic', daily_rate: 200, car_insurance: 50, third_party_insurance: 20)
     CarModel.create!(name: 'Celta', year: 2006, manufacturer: 'Chevrolet', motorization: 1.0, car_category: car_category, fuel_type: 'Flex')
     CarModel.create!(name: 'KA', year: 2008, manufacturer: 'Ford', motorization: 1.0, car_category: car_category, fuel_type: 'Flex')
@@ -50,7 +52,8 @@ feature 'Admin view car model' do
   end
 
   scenario 'and nothing is registered' do
-    user_login
+    user = User.create!(name: 'João', email: 'joao@mail.com', password: '12345678')
+    login_as(user, scope: :user)
     visit root_path
     click_on 'Modelos de carro'
 
@@ -58,7 +61,8 @@ feature 'Admin view car model' do
   end
 
   scenario 'and return to home page' do
-    user_login
+    user = User.create!(name: 'João', email: 'joao@mail.com', password: '12345678')
+    login_as(user, scope: :user)
     car_category = CarCategory.create!(name: 'Basic', daily_rate: 200, car_insurance: 50, third_party_insurance: 20)
     CarModel.create!(name: 'Celta', year: 2006, manufacturer: 'Chevrolet', motorization: 1.0, car_category: car_category, fuel_type: 'Flex')
 
@@ -70,7 +74,8 @@ feature 'Admin view car model' do
   end
 
   scenario 'and return to car models page' do
-    user_login
+    user = User.create!(name: 'João', email: 'joao@mail.com', password: '12345678')
+    login_as(user, scope: :user)
     car_category = CarCategory.create!(name: 'Basic', daily_rate: 200, car_insurance: 50, third_party_insurance: 20)
     CarModel.create!(name: 'Celta', year: 2006, manufacturer: 'Chevrolet', motorization: 1.0, car_category: car_category, fuel_type: 'Flex')
 

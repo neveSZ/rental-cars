@@ -2,7 +2,8 @@ require 'rails_helper'
 
 feature 'Admin edits car category' do
   scenario 'successfully' do
-    user_login
+    user = User.create!(name: 'João', email: 'joao@mail.com', password: '12345678')
+    login_as(user, scope: :user)
     CarCategory.create!(name: 'Top', daily_rate: 105.5, car_insurance: 58.5,
                         third_party_insurance: 10.5)
 
@@ -24,7 +25,8 @@ feature 'Admin edits car category' do
   end
 
   scenario 'attributes cannot be blank' do
-    user_login
+    user = User.create!(name: 'João', email: 'joao@mail.com', password: '12345678')
+    login_as(user, scope: :user)
     CarCategory.create!(name: 'Top', daily_rate: 105.5, car_insurance: 58.5,
                         third_party_insurance: 10.5)
 
@@ -42,7 +44,8 @@ feature 'Admin edits car category' do
   end
 
   scenario 'name must be unique' do
-    user_login
+    user = User.create!(name: 'João', email: 'joao@mail.com', password: '12345678')
+    login_as(user, scope: :user)
     CarCategory.create!(name: 'Top', daily_rate: 105.5, car_insurance: 58.5,
                         third_party_insurance: 10.5)
     CarCategory.create!(name: 'Flex', daily_rate: 80, car_insurance: 8.5,
