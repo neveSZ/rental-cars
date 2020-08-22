@@ -1,0 +1,10 @@
+---
+pt-BR:
+  activerecord:
+    model:
+      subsidiary: Filial
+    attributes:
+      subsidiary:
+        name: Nome
+        cnpj: CNPJ
+        address: Endereço
