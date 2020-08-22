@@ -2,6 +2,7 @@ require 'rails_helper'
 
 feature ' Admin register car model' do
   scenario 'successfully' do
+    user_login
     car_category = CarCategory.create!(name: 'Top', daily_rate: 105.5, car_insurance: 58.5, third_party_insurance: 10.5)
 
     visit root_path
@@ -24,6 +25,7 @@ feature ' Admin register car model' do
   end
 
   scenario 'must fill in all fields' do
+    user_login
     visit root_path
     click_on 'Modelos de carro'
     click_on 'Registrar um modelo de carro'

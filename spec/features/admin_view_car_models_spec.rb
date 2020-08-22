@@ -1,7 +1,16 @@
 require 'rails_helper'
 
 feature 'Admin view car model' do
+  scenario 'must be signed in' do
+    visit root_path
+    click_on 'Modelos de carro'
+
+    expect(page).to have_current_path(new_user_session_path)
+    expect(page).to have_content('Para continuar, faça login ou registre-se.')
+  end
+
   scenario 'and view list' do
+    user_login
     car_category = CarCategory.create!(name: 'Basic', daily_rate: 200, car_insurance: 50, third_party_insurance: 20)
     CarModel.create!(name: 'Celta', year: 2006, manufacturer: 'Chevrolet', motorization: 1.0, car_category: car_category, fuel_type: 'Flex')
     CarModel.create!(name: 'KA', year: 2008, manufacturer: 'Ford', motorization: 1.0, car_category: car_category, fuel_type: 'Flex')
@@ -19,6 +28,7 @@ feature 'Admin view car model' do
   end
 
   scenario 'and view details' do
+    user_login
     car_category = CarCategory.create!(name: 'Basic', daily_rate: 200, car_insurance: 50, third_party_insurance: 20)
     CarModel.create!(name: 'Celta', year: 2006, manufacturer: 'Chevrolet', motorization: 1.0, car_category: car_category, fuel_type: 'Flex')
     CarModel.create!(name: 'KA', year: 2008, manufacturer: 'Ford', motorization: 1.0, car_category: car_category, fuel_type: 'Flex')
@@ -40,6 +50,7 @@ feature 'Admin view car model' do
   end
 
   scenario 'and nothing is registered' do
+    user_login
     visit root_path
     click_on 'Modelos de carro'
 
@@ -47,6 +58,7 @@ feature 'Admin view car model' do
   end
 
   scenario 'and return to home page' do
+    user_login
     car_category = CarCategory.create!(name: 'Basic', daily_rate: 200, car_insurance: 50, third_party_insurance: 20)
     CarModel.create!(name: 'Celta', year: 2006, manufacturer: 'Chevrolet', motorization: 1.0, car_category: car_category, fuel_type: 'Flex')
 
@@ -58,6 +70,7 @@ feature 'Admin view car model' do
   end
 
   scenario 'and return to car models page' do
+    user_login
     car_category = CarCategory.create!(name: 'Basic', daily_rate: 200, car_insurance: 50, third_party_insurance: 20)
     CarModel.create!(name: 'Celta', year: 2006, manufacturer: 'Chevrolet', motorization: 1.0, car_category: car_category, fuel_type: 'Flex')
 
