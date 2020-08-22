@@ -13,13 +13,8 @@ class SubsidiariesController < ApplicationController
   end
 
   def create
-    @subsidiary = Subsidiary.new(subsidiary_params)
-    if @subsidiary.save
-      redirect_to @subsidiary
-    else
-      @subsidiaries = Subsidiary.all
-      render :new
-    end
+    @subsidiary = Subsidiary.create(subsidiary_params)
+    redirect_to @subsidiary
   end
 
   def edit

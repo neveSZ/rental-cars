@@ -23,7 +23,7 @@ feature 'Admin edit subsidiary' do
     expect(page).not_to have_content('Rua A')
   end
 
-  scenario 'cnpj cant be blank' do
+  scenario 'attributes cant be blank' do
     user = User.create!(name: 'João', email: 'joao@mail.com', password: '12345678')
     login_as(user, scope: :user)
     Subsidiary.create!(name: 'Loja A', cnpj: '65.118.391/0001-99', address: 'Rua A')
@@ -32,12 +32,12 @@ feature 'Admin edit subsidiary' do
     click_on 'Filiais'
     click_on 'Loja A'
     click_on 'Editar'
-    fill_in 'Nome', with: 'Loja B'
+    fill_in 'Nome', with: ''
     fill_in 'CNPJ', with: ''
-    fill_in 'Endereço', with: 'Rua B'
+    fill_in 'Endereço', with: ''
     click_on 'Enviar'
 
-    expect(page).to have_content('não pode ficar em branco')
+    expect(page).to have_content('não pode ficar em branco', count: 3)
   end
 
   scenario 'cnpj must be unique' do
