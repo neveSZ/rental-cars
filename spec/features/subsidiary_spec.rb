@@ -20,7 +20,7 @@ describe Subsidiary, type: :model do
       expect(subsidiary.errors[:cnpj]).to include('não é válido')
     end
 
-    it 'cnpj valid structure' do
+    it 'cnpj must be valid structure' do
       subsidiary = Subsidiary.new(cnpj: '86.753.560/0001-31')
 
       subsidiary.valid?
