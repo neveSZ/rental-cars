@@ -8,12 +8,7 @@ feature 'User sign in' do
   end
 
   scenario 'successfully' do
-    User.create!(name: 'João', email: 'joao@mail.com', password: '12345678')
-    visit root_path
-    click_on 'Entrar'
-    fill_in 'Email', with: 'joao@mail.com'
-    fill_in 'Senha', with: '12345678'
-    click_on 'Entrar'
+    user_login
 
     expect(page).to have_content 'João'
     expect(page).to have_content 'Login efetuado com sucesso'

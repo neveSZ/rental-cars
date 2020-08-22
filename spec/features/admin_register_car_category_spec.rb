@@ -2,6 +2,7 @@ require 'rails_helper'
 
 feature 'Admin register car categories' do
   scenario 'from index page' do
+    user_login
     visit root_path
     click_on 'Categorias'
 
@@ -10,6 +11,7 @@ feature 'Admin register car categories' do
   end
 
   scenario 'successfully' do
+    user_login
     visit root_path
     click_on 'Categorias'
     click_on 'Registrar uma nova categoria'

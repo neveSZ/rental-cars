@@ -1,7 +1,16 @@
 require 'rails_helper'
 
 feature 'Admin view car categories' do
+  scenario 'must be signed in' do
+    visit root_path
+    click_on 'Categorias'
+
+    expect(page).to have_current_path(new_user_session_path)
+    expect(page).to have_content('Para continuar, faça login ou registre-se.')
+  end
+
   scenario 'successfully' do
+    user_login
     CarCategory.create!(name: 'Top', daily_rate: 105.5, car_insurance: 58.5,
                         third_party_insurance: 10.5)
     CarCategory.create!(name: 'Flex', daily_rate: 80, car_insurance: 8.5,
@@ -19,6 +28,7 @@ feature 'Admin view car categories' do
   end
 
   scenario 'and view details' do
+    user_login
     CarCategory.create!(name: 'Top', daily_rate: 105.5, car_insurance: 58.5,
                         third_party_insurance: 10.5)
     CarCategory.create!(name: 'Flex', daily_rate: 80, car_insurance: 8.5,
@@ -36,6 +46,7 @@ feature 'Admin view car categories' do
   end
 
   scenario 'and no car categories are created' do
+    user_login
     visit root_path
     click_on 'Categorias'
 
@@ -43,6 +54,7 @@ feature 'Admin view car categories' do
   end
 
   scenario 'and return to home page' do
+    user_login
     CarCategory.create!(name: 'Top', daily_rate: 105.5, car_insurance: 58.5,
                         third_party_insurance: 10.5)
 
@@ -54,6 +66,7 @@ feature 'Admin view car categories' do
   end
 
   scenario 'and return to manufacturers page' do
+    user_login
     CarCategory.create!(name: 'Top', daily_rate: 105.5, car_insurance: 58.5,
                         third_party_insurance: 10.5)
 
