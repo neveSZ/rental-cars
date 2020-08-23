@@ -38,16 +38,4 @@ feature 'Admin schedule rentail' do
     click_on 'Agendar'
     expect(page).to have_content('não pode ficar em branco', count: 2)
   end
-
-  scenario 'must be signed in' do
-    visit root_path
-
-    expect(page).to_not have_content('Locações')
-  end
-
-  scenario 'must be logged in to view rentals list' do
-    visit rentals_path
-
-    expect(current_path).to eq new_user_session_path
-  end
 end

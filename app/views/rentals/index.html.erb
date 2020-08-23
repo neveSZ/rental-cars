@@ -1,1 +1,9 @@
+<% if @rentals.any? %>
+    <% @rentals.each do |rental| %>
+        <%= link_to "#{l rental.start_date} - #{l rental.end_date}", rental %>
+    <% end %>
+<% else %>
+    <%= 'Nenhuma locação agendada' %>
+<% end %>
+
 <%= link_to 'Agendar nova locação', new_rental_path %>
