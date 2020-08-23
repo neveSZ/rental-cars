@@ -1,0 +1,9 @@
+<h1> Locação </h1>
+
+<%= l @rental.start_date %>
+<%= l @rental.end_date %>
+<%= @rental.client.name %>
+<%= @rental.client.cpf %>
+<%= @rental.client.email %>
+<%= @rental.car_category.name %>
+<%= number_to_currency @rental.total %>
