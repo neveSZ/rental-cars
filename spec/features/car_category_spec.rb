@@ -33,5 +33,15 @@ describe CarCategory, type: :model do
 
       expect(category.errors[:name]).to include('já está em uso')
     end
+
+    it 'the values must be greather than 0' do
+      category = CarCategory.new(name: 'Top', daily_rate: -1, car_insurance: -1, third_party_insurance: 0)
+
+      category.valid?
+
+      expect(category.errors[:daily_rate]).to include('deve ser maior que 0')
+      expect(category.errors[:car_insurance]).to include('deve ser maior que 0')
+      expect(category.errors[:third_party_insurance]).to include('deve ser maior que 0')
+    end
   end
 end
