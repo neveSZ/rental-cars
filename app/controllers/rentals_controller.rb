@@ -1,4 +1,5 @@
 class RentalsController < ApplicationController
+  before_action :authenticate_user!
   def index; end
 
   def new
@@ -10,8 +11,13 @@ class RentalsController < ApplicationController
   def create
     @rental = Rental.new(rental_params)
     @rental.user = current_user
-    @rental.save!
-    redirect_to @rental, notice: 'Agendamento realizado com sucesso'
+    if @rental.save
+      redirect_to @rental, notice: 'Agendamento realizado com sucesso'
+    else
+      @clients = Client.all
+      @car_categories = CarCategory.all
+      render :new
+    end
   end
 
   def show

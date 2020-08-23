@@ -25,4 +25,29 @@ feature 'Admin schedule rentail' do
     expect(page).to have_content('R$ 160,00')
     expect(page).to have_content('Agendamento realizado com sucesso')
   end
+
+  scenario 'must fill in all fields' do
+    user = User.create!(name: 'João', email: 'joao@mail.com', password: '12345678')
+    login_as(user, scope: :user)
+    CarCategory.create!(name: 'Top', daily_rate: 100, car_insurance: 50, third_party_insurance: 10)
+    Client.create!(name: 'Fulano Sicrano', cpf: '359.787.110-03', email: 'fulano@mail.com')
+
+    visit root_path
+    click_on 'Locações'
+    click_on 'Agendar nova locação'
+    click_on 'Agendar'
+    expect(page).to have_content('não pode ficar em branco', count: 2)
+  end
+
+  scenario 'must be signed in' do
+    visit root_path
+
+    expect(page).to_not have_content('Locações')
+  end
+
+  scenario 'must be logged in to view rentals list' do
+    visit rentals_path
+
+    expect(current_path).to eq new_user_session_path
+  end
 end
