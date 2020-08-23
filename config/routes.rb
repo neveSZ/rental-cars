@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :car_models
   resources :rentals, only: %i[index new create show]
   resources :clients, only: %i[index new create show]
+  resources :cars, only: %i[new create index]
 end

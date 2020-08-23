@@ -1,0 +1,9 @@
+<% if @cars.any? %>
+    <% @cars.each do |car| %>
+        <%= @car.license_plate %>
+    <% end %>
+<% else %>
+    <%= 'Nenhum carro cadastrao' %>]
+<% end %>
+
+<%= link_to 'Voltar', root_path %>
