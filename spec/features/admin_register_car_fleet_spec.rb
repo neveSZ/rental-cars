@@ -5,8 +5,8 @@ feature 'Admin register a car in the fleet' do
     user = User.create!(name: 'João', email: 'joao@mail.com', password: '12345678')
     login_as(user, scope: :user)
     car_category = CarCategory.create!(name: 'Basic', daily_rate: 200, car_insurance: 50, third_party_insurance: 20)
-    car_model = CarModel.create!(name: 'Celta', year: 2006, manufacturer: 'Chevrolet', motorization: 1.0, car_category: car_category, fuel_type: 'Flex')
-    subsidiary = Subsidiary.create!(name: 'LojaB', cnpj: '52.942.727/0001-91', address: 'rua B')
+    CarModel.create!(name: 'Celta', year: 2006, manufacturer: 'Chevrolet', motorization: 1.0, car_category: car_category, fuel_type: 'Flex')
+    Subsidiary.create!(name: 'LojaB', cnpj: '52.942.727/0001-91', address: 'rua B')
 
     visit root_path
     click_on 'Filiais'
@@ -27,8 +27,8 @@ feature 'Admin register a car in the fleet' do
     user = User.create!(name: 'João', email: 'joao@mail.com', password: '12345678')
     login_as(user, scope: :user)
     car_category = CarCategory.create!(name: 'Basic', daily_rate: 200, car_insurance: 50, third_party_insurance: 20)
-    car_model = CarModel.create!(name: 'Celta', year: 2006, manufacturer: 'Chevrolet', motorization: 1.0, car_category: car_category, fuel_type: 'Flex')
-    subsidiary = Subsidiary.create!(name: 'LojaB', cnpj: '52.942.727/0001-91', address: 'rua B')
+    CarModel.create!(name: 'Celta', year: 2006, manufacturer: 'Chevrolet', motorization: 1.0, car_category: car_category, fuel_type: 'Flex')
+    Subsidiary.create!(name: 'LojaB', cnpj: '52.942.727/0001-91', address: 'rua B')
 
     visit root_path
     click_on 'Filiais'
@@ -65,8 +65,8 @@ feature 'Admin register a car in the fleet' do
     user = User.create!(name: 'João', email: 'joao@mail.com', password: '12345678')
     login_as(user, scope: :user)
     car_category = CarCategory.create!(name: 'Basic', daily_rate: 200, car_insurance: 50, third_party_insurance: 20)
-    car_model = CarModel.create!(name: 'Celta', year: 2006, manufacturer: 'Chevrolet', motorization: 1.0, car_category: car_category, fuel_type: 'Flex')
-    subsidiary = Subsidiary.create!(name: 'LojaB', cnpj: '52.942.727/0001-91', address: 'rua B')
+    CarModel.create!(name: 'Celta', year: 2006, manufacturer: 'Chevrolet', motorization: 1.0, car_category: car_category, fuel_type: 'Flex')
+    Subsidiary.create!(name: 'LojaB', cnpj: '52.942.727/0001-91', address: 'rua B')
 
     visit root_path
     click_on 'Filiais'
@@ -86,8 +86,8 @@ feature 'Admin register a car in the fleet' do
     user = User.create!(name: 'João', email: 'joao@mail.com', password: '12345678')
     login_as(user, scope: :user)
     car_category = CarCategory.create!(name: 'Basic', daily_rate: 200, car_insurance: 50, third_party_insurance: 20)
-    car_model = CarModel.create!(name: 'Celta', year: 2006, manufacturer: 'Chevrolet', motorization: 1.0, car_category: car_category, fuel_type: 'Flex')
-    subsidiary = Subsidiary.create!(name: 'LojaB', cnpj: '52.942.727/0001-91', address: 'rua B')
+    CarModel.create!(name: 'Celta', year: 2006, manufacturer: 'Chevrolet', motorization: 1.0, car_category: car_category, fuel_type: 'Flex')
+    Subsidiary.create!(name: 'LojaB', cnpj: '52.942.727/0001-91', address: 'rua B')
 
     visit root_path
     click_on 'Filiais'
