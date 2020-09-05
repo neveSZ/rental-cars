@@ -16,4 +16,6 @@
 
 <% if @rentals.any? %>
     <%= render @rentals %>
+<% else %>
+    <%= 'Nenhuma locação encontrada' %>
 <% end %>
