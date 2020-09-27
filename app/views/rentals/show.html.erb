@@ -1,5 +1,6 @@
 <h1> Locação </h1>
 
+<%= @rental.token %>
 <%= l @rental.start_date %>
 <%= l @rental.end_date %>
 <%= @rental.client.name %>
@@ -7,3 +8,18 @@
 <%= @rental.client.email %>
 <%= @rental.car_category.name %>
 <%= number_to_currency @rental.total %>
+
+
+<% if @rental.car_rental %>
+    <%= @rental.car_rental.car.license_plate %>
+    <%= @rental.car_rental.car.color %>
+    <%= @rental.car_rental.car.car_model.name %>
+    Usuário: <%= @rental.car_rental.user.email %>
+    CNH do Condutor: <%= @rental.car_rental.driver_license_number %>
+    Inicio da locação <%= l @rental.car_rental.start_date %>
+
+    Em andamento
+
+<% else %>
+    <%= link_to 'Iniciar locação', new_rental_car_rental_path(@rental.id) %>
+<% end %>

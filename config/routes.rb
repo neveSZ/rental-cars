@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :subsidiaries
   resources :car_models
   resources :rentals, only: %i[index new create show] do
+    resources :car_rentals, only: %i[new create]
     get 'search', on: :collection
   end
   resources :clients, only: %i[index new create show]

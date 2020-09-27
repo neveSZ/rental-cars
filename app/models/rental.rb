@@ -2,9 +2,9 @@ class Rental < ApplicationRecord
   belongs_to :client
   belongs_to :car_category
   belongs_to :user
+  has_one :car_rental
   validates :start_date, :end_date, presence: true
   validates :token, uniqueness: true
-
   before_create :generate_token
 
   def total
