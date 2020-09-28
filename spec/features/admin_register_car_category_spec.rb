@@ -12,7 +12,7 @@ feature 'Admin register car categories' do
   end
 
   scenario 'successfully' do
-    user = User.create!(name: 'João', email: 'joao@mail.com', password: '12345678')
+    user = User.create!(name: 'João', email: 'joao@mail.com', password: '12345678', admin: true)
     login_as(user, scope: :user)
     visit root_path
     click_on 'Categorias'

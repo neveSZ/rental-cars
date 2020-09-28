@@ -14,11 +14,15 @@ class CarCategoriesController < ApplicationController
   end
 
   def create
-    @car_category = CarCategory.new(car_category_params)
-    if @car_category.save
-      redirect_to @car_category
+    if current_user.admin?
+      @car_category = CarCategory.new(car_category_params)
+      if @car_category.save
+        redirect_to @car_category
+      else
+        render :new
+      end
     else
-      render :new
+      redirect_to root_path, alert: 'Você não tem permissão para realizar a ação'
     end
   end
 

@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'Admin register valid car category' do
   scenario 'and name must be unique' do
-    user = User.create!(name: 'João', email: 'joao@mail.com', password: '12345678')
+    user = User.create!(name: 'João', email: 'joao@mail.com', password: '12345678', admin: true)
     login_as(user, scope: :user)
     CarCategory.create!(name: 'Top', daily_rate: 105.5, car_insurance: 58.5,
                         third_party_insurance: 10.5)
@@ -20,7 +20,7 @@ feature 'Admin register valid car category' do
   end
 
   scenario 'and attributes cannot be blank' do
-    user = User.create!(name: 'João', email: 'joao@mail.com', password: '12345678')
+    user = User.create!(name: 'João', email: 'joao@mail.com', password: '12345678', admin: true)
     login_as(user, scope: :user)
     visit root_path
     click_on 'Categorias'
@@ -36,7 +36,7 @@ feature 'Admin register valid car category' do
   end
 
   scenario 'and name is not case sensitive' do
-    user = User.create!(name: 'João', email: 'joao@mail.com', password: '12345678')
+    user = User.create!(name: 'João', email: 'joao@mail.com', password: '12345678', admin: true)
     login_as(user, scope: :user)
     CarCategory.create!(name: 'Top', daily_rate: 105.5, car_insurance: 58.5,
                         third_party_insurance: 10.5)
@@ -54,7 +54,7 @@ feature 'Admin register valid car category' do
   end
 
   scenario 'all prices must be greather than 0' do
-    user = User.create!(name: 'João', email: 'joao@mail.com', password: '12345678')
+    user = User.create!(name: 'João', email: 'joao@mail.com', password: '12345678', admin: true)
     login_as(user, scope: :user)
 
     visit root_path
